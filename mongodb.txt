@@ -1,0 +1,327 @@
+Microsoft Windows [Version 10.0.17763.1]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\ELCOT\Downloads\mongosh-2.3.0-win32-x64\mongosh-2.3.0-win32-x64\bin>mongosh
+Current Mongosh Log ID: 66d9e40673c31976a92710bb
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.0
+Using MongoDB:          7.0.14
+Using Mongosh:          2.3.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-09-05T07:14:09.515-07:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+
+CREATE DATABASE:
+
+test> use students
+switched to db students
+
+INSERT ONE:
+
+students> db.students.insertOne({id:101,name:"susmitha"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66d9e56173c31976a92710c0')
+}
+students> db.students.insertOne({id:102,name:"aswin raj"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66d9e57d73c31976a92710c1')
+}
+students> db.students.insertOne({id:103,name:"anitha"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66d9e59573c31976a92710c2')
+}
+students> db.students.insertOne({id:104,name:"veera"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66d9e5a573c31976a92710c3')
+}
+students> db.students.insertOne({id:105,name:"susheela"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('66d9e5b973c31976a92710c4')
+}
+
+DB COLLECTION:
+
+students> db.students.find()
+[
+  {
+    _id: ObjectId('66d9e32dfe86713fcc2710bc'),
+    id: 101,
+    name: 'susmitha'
+  }
+  {_id: ObjectId('66d9e48573c31976a92710bd'),
+    id: 102,
+    name: 'aswin raj'
+  }
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+  }
+ {
+    _id: ObjectId('66d9e5a573c31976a92710c3'), 
+     id:104,
+     name:'veera'
+ }
+  {
+    _id: ObjectId('66d9e5b973c31976a92710c4'),
+    id: 105,
+    name: 'susheela'
+  }
+]
+
+UPDATE ONE:
+
+students> db.students.updateOne({id:105,name:"susheela"},{$set:{name:"siva"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.students.find()
+[
+  {
+    _id: ObjectId('66d9e32dfe86713fcc2710bc'),
+    id: 101,
+    name: 'susmitha'
+  }
+ {
+    _id: ObjectId('66d9e48573c31976a92710bd'),
+    id: 102,
+    name: 'aswin raj'
+  }
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+ }
+  { _id: ObjectId('66d9e5a573c31976a92710c3'), 
+     id:104,
+     name:'veera'
+}
+  { _id: ObjectId('66d9e5b973c31976a92710c4'),
+     id:105,
+     name:'siva'
+}
+]
+
+INSERT MANY:
+
+students> db.students.insertMany([{id:106,name:"keerthi"}])
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('66d9e7f573c31976a92710c5') }
+}
+students> db.students.find()
+[
+  {
+    _id: ObjectId('66d9e32dfe86713fcc2710bc'),
+    id: 101,
+    name: 'susmitha'
+  }
+  {
+    _id: ObjectId('66d9e48573c31976a92710bd'),
+    id: 102,
+    name: 'aswin raj'
+  }
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+  }
+  { _id: ObjectId('66d9e50373c31976a92710bf'),
+     id:104,
+     name:'veera'
+ { _id: ObjectId
+     id: 105, 
+      name: 'siva' 
+  },
+
+  {
+    _id: ObjectId('66d9e7f573c31976a92710c5'),
+    id: 106,
+    name: 'keerthi'
+  },
+]
+
+UPDATEMANY:
+
+
+students> db.students.updateMany({id:106,name:"keerthi"},{$set:{name:"shalini"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+students> db.students.find()
+[
+  {
+    _id: ObjectId('66d9e32dfe86713fcc2710bc'),
+    id: 101,
+    name: 'susmitha'
+  },
+ 
+  {
+    _id: ObjectId('66d9e48573c31976a92710bd'),
+    id: 102,
+    name: 'aswin raj'
+  },
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+  },
+  { _id: ObjectId('66d9e50373c31976a92710bf'), 
+     id: 104, 
+     name: 'veera' 
+  },
+
+  { 
+    _id: ObjectId('66d9e5a573c31976a92710c3'), 
+     id: 104, 
+     name: 'veera' 
+   },
+  { 
+    _id: ObjectId('66d9e5b973c31976a92710c4'), 
+     id: 105, 
+    name: 'siva'
+  },
+  {
+    _id: ObjectId('66d9e7f573c31976a92710c5'),
+    id: 106,
+    name: 'shalini'
+  }
+]
+
+DALETE ONE:
+
+students> db.students.deleteOne({id:106,name:"shalini"})
+{ acknowledged: true, deletedCount: 1 }
+students> db.students.find()
+[
+  {
+    _id: ObjectId('66d9e32dfe86713fcc2710bc'),
+    id: 101,
+    name: 'susmitha'
+  },
+ 
+  {
+    _id: ObjectId('66d9e48573c31976a92710bd'),
+    id: 102,
+    name: 'aswin raj'
+  },
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+  },
+  { _id: ObjectId('66d9e50373c31976a92710bf'), 
+     id: 104, 
+    name: 'veera' 
+  },
+ 
+  { 
+    _id: ObjectId('66d9e5b973c31976a92710c4'), 
+     id: 105, 
+   name: 'siva' }
+]
+
+DELETEMANY:
+
+students> db.students.deleteMany({id:105,name:"siva"})
+{ acknowledged: true, deletedCount: 1 }
+students> db.students.find()
+[
+  {
+    _id: ObjectId('66d9e32dfe86713fcc2710bc'),
+    id: 101,
+    name: 'susmitha'
+  },
+ 
+  {
+    _id: ObjectId('66d9e48573c31976a92710bd'),
+    id: 102,
+    name: 'aswin raj'
+  },
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+  },
+  { _id: ObjectId('66d9e50373c31976a92710bf'), 
+     id: 104, 
+    name: 'veera' 
+  },
+]
+
+LIMIT:
+
+students> db.students.find().sort({name:1}).limit(3)
+[
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+  },
+  
+  {
+    _id: ObjectId('66d9e57d73c31976a92710c1'),
+    id: 102,
+    name: 'aswin raj'
+  }
+]
+
+SKIP:
+
+students> db.students.find().skip(2)
+[
+  {
+    _id: ObjectId('66d9e4d173c31976a92710be'),
+    id: 103,
+    name: 'aarthi'
+  },
+  { _id: ObjectId('66d9e50373c31976a92710bf'), 
+     id: 104, 
+    name: 'veera' 
+  },
+]
+
+GREATERTHEN:
+students> db.students.findOne({id:{$gt:103}})
+{ _id: ObjectId('66d9e50373c31976a92710bf'), id: 104, name: 'veera' }
+
+LESSTHEN:
+students> db.students.findOne({id:{$lt:103}})
+{
+  _id: ObjectId('66d9e32dfe86713fcc2710bc'),
+  id: 101,
+  name: 'susmitha'
+}
+
+GREATER THEN OR EQUAL:
+
+students> db.students.findOne({id:{$gte:103}})
+{ _id: ObjectId('66d9e4d173c31976a92710be'), id: 103, name: 'aarthi'}
+
+
+LESS THAN OR EQUAL:
+
+students> db.students.findOne({id:{$gte:103}})
+{ _id: ObjectId('66d9e4d173c31976a92710be'), id: 103, name: 'aarthi' }
+
+
+
+ 
+   

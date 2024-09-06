@@ -1,0 +1,58 @@
+      sqlite3 sigc.db
+      create table msc(id integer,name varchar(100),address varchar(100),mark integer);
+      insert into msc(id,name,address,mark) values(100,'guna','trichy',98);
+      insert into msc(id,name,address,mark) values(101,'devi','viralimalai',90);
+      insert into msc(id,name,address,mark) values(102,'madurai','trichy',95);
+      insert into msc(id,name,address,mark) values(103,'pavi','theni',90);
+      insert into msc(id,name,address,mark) values(104,'kumar','trichy',92);
+      select * from msc;
+
+      100|guna|trichy|98
+      101|devi|viralimalai|90
+      102|madurai|trichy|95
+      103|pavi|theni|90
+      104|kumar|trichy|92
+
+      update msc set name='suba' where id=102;
+      select * from msc;
+
+     100|guna|trichy|98
+     101|devi|viralimalai|90
+     102|suba|trichy|95
+     103|pavi|theni|90
+     104|kumar|trichy|92
+
+     delete from msc where id=104;
+     select * from msc;
+
+     100|guna|trichy|98
+     101|devi|viralimalai|90
+     102|suba|trichy|95
+     103|pavi|theni|90
+
+     alter table msc add phone_no integer;
+     select * from msc;
+
+     100|guna|trichy|98|
+     101|devi|viralimalai|90|
+     102|suba|trichy|95|
+     103|pavi|theni|90|
+
+     update msc set phone_no=9897969500 where id=100;
+     select * from msc;
+
+    100|guna|trichy|98|9897969500
+    101|devi|viralimalai|90|
+    102|suba|trichy|95|
+    103|pavi|theni|90|
+
+    update msc set phone_no=9897923500 where id=101;
+    update msc set phone_no=9897969670 where id=102;
+    update msc set phone_no=9887969500 where id=103;
+    select * from msc;
+
+    100|guna|trichy|98|9897969500
+    101|devi|viralimalai|90|9897923500
+    102|suba|trichy|95|9897969670
+    103|pavi|theni|90|9887969500
+
